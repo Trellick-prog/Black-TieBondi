@@ -141,6 +141,10 @@ body.cards { background: #2a2a2a; font-size: 12.5pt; }
 .card .item { margin-bottom: 0.6em; }
 .card .item-desc, .card .timeline p { font-size: 0.84em; }
 .card .timeline li { padding: 0.5em 0; }
+.card table.costs { text-align: left; font-size: 0.82em; }
+.card table.costs td { padding: 0.26em 0; }
+.card table.costs tr.sub td { padding-top: 0.9em; }
+.card table.costs tr.total td { padding-top: 0.7em; color: var(--gold-soft); }
 .card .foot { margin-top: auto; color: var(--muted); font-style: italic; font-size: 0.85em; }
 
 .invite .frame { justify-content: center; }

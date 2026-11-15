@@ -16,5 +16,6 @@ const fs = require('fs');
   await pdf('invitation.pdf', '1');
   await pdf('menu.pdf', '2');
   await pdf('order-of-events.pdf', '3');
+  await pdf('finances.pdf', '4');
   await browser.close();
 })();

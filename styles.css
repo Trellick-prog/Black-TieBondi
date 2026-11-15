@@ -1,0 +1,159 @@
+@font-face { font-family: "Cinzel"; font-weight: 400; src: url("fonts/cinzel-latin-400-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Cinzel"; font-weight: 600; src: url("fonts/cinzel-latin-600-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; font-weight: 400; src: url("fonts/cormorant-garamond-latin-400-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; font-weight: 600; src: url("fonts/cormorant-garamond-latin-600-normal.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; font-weight: 400; font-style: italic; src: url("fonts/cormorant-garamond-latin-400-italic.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "Cormorant Garamond"; font-weight: 500; font-style: italic; src: url("fonts/cormorant-garamond-latin-500-italic.woff2") format("woff2"); font-display: swap; }
+
+:root {
+  --ink: #0b0b0c;
+  --panel: #131314;
+  --line: #3a3223;
+  --gold: #c9a55c;
+  --gold-soft: #e2c88f;
+  --cream: #efe8d8;
+  --muted: #a39c8c;
+  --display: "Cinzel", "Times New Roman", serif;
+  --body: "Cormorant Garamond", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--body);
+  font-size: 20px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--gold-soft); }
+
+/* ---------- shared pieces ---------- */
+.eyebrow {
+  font-family: var(--display);
+  font-size: 0.62em;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; letter-spacing: 0.08em; }
+h2 { font-size: 1.7rem; text-transform: uppercase; color: var(--cream); }
+h3 { font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin: 2em 0 0.9em; }
+em { font-style: italic; font-weight: 500; }
+
+.rule { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 1.1em auto; color: var(--gold); }
+.rule::before, .rule::after { content: ""; height: 1px; width: 70px; background: var(--gold); opacity: 0.6; }
+.rule span { width: 7px; height: 7px; transform: rotate(45deg); border: 1px solid var(--gold); }
+
+.bowtie { width: 74px; height: auto; fill: var(--gold); display: block; margin: 0 auto; }
+
+.item { margin: 0 0 1.05em; }
+.item-head { display: flex; align-items: baseline; gap: 10px; }
+.item-name { font-family: var(--display); font-size: 0.82em; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); }
+.item-head .dots { flex: 1; border-bottom: 1px dotted var(--line); transform: translateY(-4px); }
+.item-tag { font-style: italic; color: var(--gold-soft); font-size: 0.9em; white-space: nowrap; }
+.item-desc { color: var(--muted); font-size: 0.92em; line-height: 1.35; margin: 0.15em 0 0; }
+
+.timeline { list-style: none; padding: 0; margin: 0; }
+.timeline li { display: grid; grid-template-columns: 5.2em 1fr; gap: 0 1em; padding: 0.7em 0; border-bottom: 1px solid var(--line); }
+.timeline li:last-child { border-bottom: 0; }
+.timeline time { font-family: var(--display); font-size: 0.78em; letter-spacing: 0.12em; color: var(--gold); padding-top: 0.25em; }
+.timeline strong { font-family: var(--display); font-weight: 400; font-size: 0.82em; letter-spacing: 0.14em; text-transform: uppercase; display: block; }
+.timeline p { margin: 0.1em 0 0; color: var(--muted); font-size: 0.92em; line-height: 1.35; }
+
+/* ---------- website ---------- */
+.site nav {
+  position: sticky; top: 0; z-index: 5;
+  display: flex; justify-content: center; gap: 1.6em; flex-wrap: wrap;
+  padding: 14px 16px;
+  background: rgba(11, 11, 12, 0.92);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(6px);
+}
+.site nav a { font-family: var(--display); font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
+.site nav a:hover { color: var(--gold-soft); }
+
+.hero { text-align: center; padding: 84px 16px 72px; }
+.hero h1 { font-size: clamp(2.3rem, 9vw, 4.6rem); line-height: 1.1; margin: 0.35em 0 0.2em; text-transform: uppercase; }
+.hero .sub { font-style: italic; font-size: 1.35rem; color: var(--gold-soft); }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; max-width: 760px; margin: 44px auto 0; background: var(--line); border: 1px solid var(--line); }
+.facts div { background: var(--ink); padding: 20px 12px; }
+.facts b { display: block; font-weight: 400; font-size: 1.15rem; margin-top: 4px; }
+
+section { max-width: 760px; margin: 0 auto; padding: 64px 16px; border-top: 1px solid var(--line); }
+section > header { text-align: center; margin-bottom: 34px; }
+section > header p { color: var(--muted); font-style: italic; margin: 0.5em 0 0; }
+.cols { display: grid; grid-template-columns: 1fr; gap: 0 48px; }
+@media (min-width: 700px) { .cols { grid-template-columns: 1fr 1fr; } }
+
+table.costs { width: 100%; border-collapse: collapse; font-size: 0.95em; }
+table.costs td { padding: 0.5em 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.costs td:last-child { text-align: right; white-space: nowrap; padding-left: 1em; font-variant-numeric: tabular-nums; }
+table.costs small { display: block; color: var(--muted); font-size: 0.85em; }
+table.costs tr.sub td { font-family: var(--display); font-size: 0.75em; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+table.costs tr.total td { font-family: var(--display); letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.85em; border-bottom: 0; padding-top: 1em; }
+
+.price { text-align: center; border: 1px solid var(--gold); padding: 30px 16px; margin: 0 0 34px; background: var(--panel); }
+.price .amount { font-family: var(--display); font-size: 3.2rem; color: var(--gold-soft); line-height: 1.1; }
+.price p { margin: 0.3em 0 0; color: var(--muted); }
+
+.downloads { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+.downloads a {
+  display: block; text-decoration: none; text-align: center;
+  border: 1px solid var(--gold); padding: 22px 12px; color: var(--cream); background: var(--panel);
+  transition: background 0.2s, color 0.2s;
+}
+.downloads a:hover { background: var(--gold); color: var(--ink); }
+.downloads a:hover small { color: var(--ink); }
+.downloads strong { font-family: var(--display); font-weight: 400; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; display: block; }
+.downloads small { color: var(--muted); font-style: italic; }
+.downloads a.primary { grid-column: 1 / -1; background: var(--gold); color: var(--ink); }
+.downloads a.primary small { color: var(--ink); }
+
+footer { text-align: center; padding: 48px 16px 64px; border-top: 1px solid var(--line); color: var(--muted); font-style: italic; }
+
+/* ---------- printable cards (A5) ---------- */
+@page { size: A5; margin: 0; }
+body.cards { background: #2a2a2a; font-size: 12.5pt; }
+.card {
+  width: 148mm; height: 210mm;
+  margin: 10mm auto;
+  background: var(--ink);
+  padding: 9mm;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always; break-after: page;
+}
+.card .frame {
+  height: 100%;
+  border: 0.4mm solid var(--gold);
+  outline: 0.15mm solid var(--gold);
+  outline-offset: 1.2mm;
+  padding: 9mm 10mm;
+  display: flex; flex-direction: column;
+  text-align: center;
+}
+.card h2 { font-size: 17pt; }
+.card h3 { font-size: 7.5pt; margin: 1.3em 0 0.7em; }
+.card .item, .card .timeline { text-align: left; }
+.card .item { margin-bottom: 0.6em; }
+.card .item-desc, .card .timeline p { font-size: 0.84em; }
+.card .timeline li { padding: 0.5em 0; }
+.card .foot { margin-top: auto; color: var(--muted); font-style: italic; font-size: 0.85em; }
+
+.invite .frame { justify-content: center; }
+.invite h1 { font-size: 27pt; line-height: 1.15; text-transform: uppercase; margin: 0.3em 0 0.15em; }
+.invite .sub { font-style: italic; font-size: 14pt; color: var(--gold-soft); }
+.invite .lead { font-style: italic; color: var(--muted); margin: 0 0 0.4em; }
+.invite .when { font-family: var(--display); letter-spacing: 0.16em; text-transform: uppercase; font-size: 11pt; line-height: 1.9; }
+.invite .where { margin-top: 0.5em; }
+.invite .rsvp { margin-top: 1.4em; font-size: 0.92em; color: var(--muted); }
+.invite .rsvp b { color: var(--gold-soft); font-weight: 400; }
+
+@media print {
+  body.cards { background: none; }
+  .card { margin: 0; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
